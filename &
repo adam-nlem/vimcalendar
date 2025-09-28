@@ -1,0 +1,19 @@
+package main
+
+import (
+	"github.com/adam-nlem/vimcalendar/ui"
+	"github.com/rivo/tview"
+)
+
+func main() {
+	pages := tview.NewPages()
+
+	pages.AddPage(ui.WeekPageName, ui.WeekPage(), true, true)
+	pages.AddPage(ui.DayPageName, ui.DayPage(), true, false) // Hidden page
+
+	app := tview.NewApplication()
+
+	if err := tview.NewApplication().SetRoot(box, true).Run(); err != nil {
+		panic(err)
+	}
+}
